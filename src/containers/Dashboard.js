@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
 
-export default class Dashboard from Component {
+import Navigation from '../components/Navigation';
+
+export default class Dashboard extends Component {
 
   render() {
     return (
-      <div></div>
+      <div>
+        <Navigation />
+        { this.props.children }
+      </div>
     );
   }
 }

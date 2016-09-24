@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export default class Auth from Component {
+export default class Auth extends Component {
 
   render() {
     return (

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export default class ViewCourse from Component {
+export default class ViewCourse extends Component {
 
   render() {
     return (

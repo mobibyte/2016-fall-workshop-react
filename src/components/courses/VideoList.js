@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export default class VideoList from Component {
+export default class VideoList extends Component {
 
   render() {
     return (
