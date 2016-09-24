@@ -8,7 +8,9 @@ export default class Dashboard extends Component {
     return (
       <div>
         <Navigation />
-        { this.props.children }
+        <div className="container">
+          { this.props.children }
+        </div>
       </div>
     );
   }

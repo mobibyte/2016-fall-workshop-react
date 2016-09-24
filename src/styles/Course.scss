@@ -1,0 +1,25 @@
+.course-item {
+  padding: 0 !important;
+
+  .course-item-title {
+    font-size: 18px;
+    background: rgba(0,0,0,0.2);
+    padding: 8px;
+  }
+
+  div {
+    padding: 16px;
+  }
+
+  .course-item-header {
+    color: #fff;
+    height: 176px;
+    background-position: center;
+    background-size: cover;
+  }
+
+  .course-item-actions {
+    padding: 0 8px;
+    border-top: 1px solid #e2e2e2;
+  }
+}
