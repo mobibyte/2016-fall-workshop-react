@@ -4,7 +4,8 @@ import logo from './logo.svg';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-material-design/dist/css/bootstrap-material-design.css';
 import 'bootstrap-material-design/dist/css/ripples.min.css';
-import './App.scss';
+
+import './styles/App.scss';
 
 class App extends Component {
   render() {
