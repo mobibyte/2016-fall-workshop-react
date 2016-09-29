@@ -10,6 +10,7 @@ export default class VideoList extends Component {
         { videos.map((item, i) => (
           <Link
             key={item.id}
+            className="video-list-item"
             to={`/dashboard/courses/${course.permalink}/${i + 1}`}>
               <div className="video-number">
                 {i + 1}

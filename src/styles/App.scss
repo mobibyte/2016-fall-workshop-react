@@ -3,22 +3,22 @@
 
 @import 'variables';
 
-.video-list {
+.no-pad {
   padding: 0 !important;
+}
 
-  a {
-    text-decoration: none;
-    position: relative;
-    display: block;
-    width: 100%;
-    padding: 15px;
-    vertical-align: middle;
-    line-height: 40px;
-    overflow-x: none;
+.video-list-item {
+  text-decoration: none;
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 15px;
+  vertical-align: middle;
+  line-height: 40px;
+  overflow-x: none;
 
-    &:hover {
-      background-color: rgba(0, 0, 0, 0.05);
-    }
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.05);
   }
 
   .video-number {

@@ -30,11 +30,11 @@ export default class ViewCourse extends Component {
         <div>
           <div className="row"><h3>{course.title}</h3></div>
           <div className="row">
-            <div className="col-md-3 well video-list">
+            <div className="col-md-3 panel no-pad">
               <VideoList course={course} videos={videos} />
             </div>
 
-            <div className="col-md-offset-1 col-md-8 well">
+            <div className="col-md-offset-1 col-md-8 panel no-pad">
               <Video video={selectedVideo} />
             </div>
           </div>

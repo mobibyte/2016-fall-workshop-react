@@ -10,7 +10,7 @@ export default class CourseItem extends Component {
     const image = (imageUrl) ? imageUrl : 'http://placehold.it/300x300';
 
     return (
-      <div className="course-item well">
+      <div className="course-item panel">
         <div
           className="course-item-header"
           style={{backgroundImage: 'url(' + image + ')'}}>
