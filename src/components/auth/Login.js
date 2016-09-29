@@ -1,17 +1,36 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
+import ErrorBlock from '../shared/ErrorBlock';
 
 import { login as attemptLogin } from '../../api/auth';
 
 export default class Login extends Component {
 
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      error: null
+    }
+  }
+
   handleSubmit = (e) => {
     e.preventDefault();
+    this.setState({error: null});
 
     const email = this.refs.email.value;
     const password = this.refs.password.value;
 
-    attemptLogin(email, password);
+    if(email.trim() === '' || password.trim() === '') {
+      return this.setState({error: 'Both fields are required'});
+    }
+
+    attemptLogin(email, password)
+      .then(response => {
+        console.log('good');
+        console.log(response);
+      })
+      .catch(e => this.setState({error: e.message}));
   }
 
   render() {
@@ -19,6 +38,8 @@ export default class Login extends Component {
       <form onSubmit={this.handleSubmit}>
         <h1>Login</h1>
         <p className="text-muted">You must be a Mobi Member to login</p>
+
+        <ErrorBlock>{this.state.error}</ErrorBlock>
 
         <div className="form-group label-floating">
           <label className="control-label">Email</label>
