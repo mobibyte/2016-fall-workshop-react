@@ -1,6 +1,15 @@
 import React, { Component } from 'react';
+import { getToken } from '../utils/auth';
 
 export default class Auth extends Component {
+
+  componentWillMount() {
+    // TODO: Expiration
+    const token = getToken();
+    if(token) {
+      this.context.router.push('/dashboard');
+    }
+  }
 
   render() {
     return (
@@ -12,5 +21,9 @@ export default class Auth extends Component {
         </div>
       </div>
     );
+  }
+
+  static contextTypes = {
+    router: React.PropTypes.object.isRequired
   }
 }

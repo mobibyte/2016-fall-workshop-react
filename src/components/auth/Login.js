@@ -26,10 +26,7 @@ export default class Login extends Component {
     }
 
     attemptLogin(email, password)
-      .then(response => {
-        console.log('good');
-        console.log(response);
-      })
+      .then(response => this.context.router.push('/dashboard'))
       .catch(e => this.setState({error: e.message}));
   }
 
@@ -59,5 +56,9 @@ export default class Login extends Component {
         </Link>
       </form>
     );
+  }
+
+  static contextTypes = {
+    router: React.PropTypes.object.isRequired
   }
 }

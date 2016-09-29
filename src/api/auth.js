@@ -1,4 +1,5 @@
 import { createUrl, checkRequest } from '../utils/api';
+import { storeLogin } from '../utils/auth';
 
 export const login = (email, password) => {
   const body = {
@@ -11,5 +12,9 @@ export const login = (email, password) => {
   };
 
   return fetch(createUrl('/auth/login'), body)
-    .then(checkRequest);
+    .then(checkRequest)
+    .then(req => {
+      storeLogin(req);
+      return req;
+    });
 }

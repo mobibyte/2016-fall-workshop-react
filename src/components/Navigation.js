@@ -9,6 +9,8 @@ import { Link } from 'react-router';
 export default class Navigation extends Component {
 
   render() {
+    const { onLogout } = this.props;
+
     return (
       <Navbar>
         <Navbar.Header>
@@ -27,7 +29,7 @@ export default class Navigation extends Component {
             <NavDropdown eventKey={3} title="Hi, Cameron" id="dropdown-account">
               <MenuItem eventKey={3.1}>My Account</MenuItem>
               <MenuItem divider />
-              <MenuItem eventKey={3.3}>Logout</MenuItem>
+              <MenuItem eventKey={3.3} onClick={onLogout}>Logout</MenuItem>
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>
