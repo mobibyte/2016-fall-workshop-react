@@ -4,7 +4,10 @@ export default class VideoList extends Component {
 
   render() {
     return (
-      <div></div>
+      <ul>
+        <li>test</li>
+        <li>test</li>
+      </ul>
     );
   }
 }
