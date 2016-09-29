@@ -4,6 +4,7 @@ import {
   NavDropdown, MenuItem
 } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
+import { Link } from 'react-router';
 
 export default class Navigation extends Component {
 
@@ -12,7 +13,7 @@ export default class Navigation extends Component {
       <Navbar>
         <Navbar.Header>
           <Navbar.Brand>
-            <a href="#">Mobi</a>
+            <Link to="/dashboard">Mobi</Link>
           </Navbar.Brand>
           <Navbar.Toggle />
         </Navbar.Header>
