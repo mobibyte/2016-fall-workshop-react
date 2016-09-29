@@ -1,9 +1,16 @@
 import React, { Component } from 'react';
-import { clearLogin } from '../utils/auth';
+import { clearLogin, getToken } from '../utils/auth';
 
 import Navigation from '../components/Navigation';
 
 export default class Dashboard extends Component {
+
+  componentWillMount = () => {
+    const token = getToken();
+    if(token === null) {
+      this.context.router.push('/login');
+    }
+  }
 
   onLogout = () => {
     clearLogin();
