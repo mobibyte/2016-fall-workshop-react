@@ -7,6 +7,7 @@ import Dashboard from './containers/Dashboard';
 import Auth from './containers/Auth';
 
 import Login from './components/auth/Login';
+import ForgotPassword from './components/auth/ForgotPassword';
 import ResetPassword from './components/auth/ResetPassword';
 
 import Courses from './components/courses/Courses';
@@ -18,7 +19,7 @@ ReactDOM.render((
 
       <Route component={Auth}>
         <Route path="/login" component={Login}/>
-        <Route path="/forgot-password" component={ResetPassword}/>
+        <Route path="/forgot-pass" component={ForgotPassword}/>
       </Route>
 
       <Route path="/dashboard" component={Dashboard}>
