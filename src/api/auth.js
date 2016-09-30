@@ -18,3 +18,28 @@ export const login = (email, password) => {
       return req;
     });
 }
+export const forgotPasswordRequest = (email) => {
+  const body = {
+    method:'POST',
+    headers:{
+      'Accept': 'application/json',
+      'Content-type':'application/json'
+    },
+    body: JSON.stringify({ email } )
+  };
+  return fetch(createUrl('/auth/forgotpass'),body)
+  .then(checkRequest);
+}
+
+export const resetPasswordRequest = (token,password)=>{
+  const body = {
+    method: 'POST',
+    headers:{
+      'Accept': 'application/json',
+      'Content-type':'application/json'
+    },
+    body: JSON.stringify({password})
+  };
+  return fetch(createUrl('/auth/reset/'+token),body)
+  .then(checkRequest);
+}

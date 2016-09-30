@@ -31,6 +31,7 @@ export default class Navigation extends Component {
               <MenuItem divider />
               <MenuItem eventKey={3.3} onClick={onLogout}>Logout</MenuItem>
             </NavDropdown>
+            <NavItem onClick={onLogout}>Logout</NavItem>
           </Nav>
         </Navbar.Collapse>
       </Navbar>
