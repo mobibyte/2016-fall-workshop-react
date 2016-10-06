@@ -1,22 +1,24 @@
+import cookie from 'react-cookie';
+
 const TOKEN = 'token';
 const USER = 'user';
 
 export const storeLogin = (response) => {
   const { user, token } = response;
 
-  localStorage.setItem(TOKEN, JSON.stringify(token));
-  localStorage.setItem(USER, JSON.stringify(user));
+  cookie.save(TOKEN, token);
+  cookie.save(USER, user);
 }
 
 export const clearLogin = () => {
-  localStorage.removeItem(TOKEN);
-  localStorage.removeItem(USER);
+  cookie.remove(TOKEN);
+  cookie.remove(USER);
 }
 
 export const getToken = () => {
-  return JSON.parse(localStorage.getItem(TOKEN));
+  return cookie.load(TOKEN)
 }
 
 export const getUser = () => {
-  return JSON.parse(localStorage.getItem(USER));
+  return cookie.load(USER)
 }
