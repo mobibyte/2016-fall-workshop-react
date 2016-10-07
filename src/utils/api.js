@@ -12,7 +12,8 @@ export const fetchWithAuth = (url) => {
 }
 
 export const createUrl = (path) => {
-  return `http://localhost:3000${path}`;
+  //return `http://localhost:3000${path}`;
+  return `https://api-mobi.herokuapp.com${path}`;
 }
 
 export const checkRequest = (response) => {
