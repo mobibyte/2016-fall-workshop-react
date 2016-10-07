@@ -22,10 +22,6 @@ export default class NewMember extends Component {
     this.setState({ formValid: false });
   }
 
-  submit = (data) => {
-
-  }
-
   render() {
     const { formValid } = this.state;
     const { show, submit, error, cancel } = this.props;

@@ -1,10 +1,22 @@
+import { getToken } from './auth';
+
+export const fetchWithAuth = (url) => {
+  const options = {
+    method: 'GET',
+    headers:{
+      'Authorization': 'Bearer ' + getToken().token
+    }
+  };
+
+  return fetch(url, options);
+}
+
 export const createUrl = (path) => {
   return `http://localhost:3000${path}`;
 }
 
 export const checkRequest = (response) => {
   const valid = (response.status >= 200 && response.status < 300);
-  console.log(valid, response);
   return response.json().then(res => {
     if(valid) {
       return res;

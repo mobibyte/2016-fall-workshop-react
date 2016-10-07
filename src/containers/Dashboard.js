@@ -7,7 +7,7 @@ export default class Dashboard extends Component {
 
   componentWillMount = () => {
     const token = getToken();
-    if(token === null) {
+    if(!token) {
       this.context.router.push('/login');
     }
   }

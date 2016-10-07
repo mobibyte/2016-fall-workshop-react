@@ -1,7 +1,8 @@
-import { createUrl, checkRequest } from '../utils/api';
+import { createUrl, checkRequest, fetchWithAuth } from '../utils/api';
+import { getToken } from '../utils/auth';
 
 export const getMembers = () => {
-  return fetch(createUrl('/members'))
+  return fetchWithAuth(createUrl('/members'))
   .then(checkRequest);
 }
 
@@ -10,7 +11,8 @@ export const createMember = (data) => {
     method:'POST',
     headers:{
       'Accept': 'application/json',
-      'Content-type':'application/json'
+      'Content-type': 'application/json',
+      'Authorization': 'Bearer ' + getToken().token
     },
     body: JSON.stringify(data)
   };
