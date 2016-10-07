@@ -11,8 +11,8 @@ export const storeLogin = (response) => {
 }
 
 export const clearLogin = () => {
-  cookie.remove(TOKEN);
-  cookie.remove(USER);
+  cookie.remove('token');
+  cookie.remove('user');
 }
 
 export const getToken = () => {

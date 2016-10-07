@@ -19,11 +19,12 @@ import NewMember from './components/admin/NewMember';
 ReactDOM.render((
   <Router history={browserHistory}>
     <Route path="/" component={App}>
+      <IndexRedirect to="login" />
 
       <Route component={Auth}>
-        <Route path="/login" component={Login}/>
-        <Route path="/forgot-pass" component={ForgotPassword}/>
-        <Route path="/reset-password/:token" component={ResetPassword}/>
+        <Route path="login" component={Login}/>
+        <Route path="forgot-pass" component={ForgotPassword}/>
+        <Route path="reset/:token" component={ResetPassword}/>
       </Route>
 
       <Route path="/dashboard" component={Dashboard}>
