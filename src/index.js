@@ -13,6 +13,9 @@ import ResetPassword from './components/auth/ResetPassword';
 import Courses from './components/courses/Courses';
 import ViewCourse from './components/courses/ViewCourse';
 
+import Members from './components/admin/Members';
+import NewMember from './components/admin/NewMember';
+
 ReactDOM.render((
   <Router history={browserHistory}>
     <Route path="/" component={App}>
@@ -25,10 +28,17 @@ ReactDOM.render((
 
       <Route path="/dashboard" component={Dashboard}>
         <IndexRedirect to="courses" />
+
         <Route path="courses" component={Courses}/>
           <Route path="courses/:id" component={ViewCourse}>
             <Route path=":videoId" />
           </Route>
+
+
+        <Route>
+          <Route path="members" component={Members} />
+          <Route path="members/new" component={NewMember} />
+        </Route>
       </Route>
 
     </Route>
