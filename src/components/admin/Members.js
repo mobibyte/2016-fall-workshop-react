@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Modal } from 'react-bootstrap';
-import { createMember } from '../../api/admin';
+import { createMember, getMembers } from '../../api/admin';
 
+import MemberListItem from './MemberListItem'
 import NewMember from './NewMember';
 
 export default class Members extends Component {
@@ -13,8 +14,10 @@ export default class Members extends Component {
       newMemberForm: {
         show: false,
         error: null,
-      }
+      },
+      memberList:null
     }
+    this.updateMemberList();
   }
 
   submitNewMember = (data) => {
@@ -30,6 +33,13 @@ export default class Members extends Component {
         this.setState({ newMemberForm });
       });
   }
+  updateMemberList = () =>{
+    getMembers().then(data =>{
+      this.setState({memberList:data})
+      console.log(this.state.memberList);
+    });
+  }
+
 
   showNewMemberForm = (show) => {
     const { newMemberForm } = this.state;
@@ -38,8 +48,18 @@ export default class Members extends Component {
   }
 
   render() {
-    const { newMemberForm } = this.state;
-
+    const { newMemberForm, memberList } = this.state;
+    let memberListBlock =null;
+    if(memberList){
+      memberListBlock = memberList.map(member =>(
+          <MemberListItem
+            key={member._id}
+            firstName={member.firstname}
+            lastName={member.lastname}
+            email ={member.email}
+            membershipRenewedAt = {member.membershipRenewedAt}/>
+      ));
+    }
     return(
       <div>
         <NewMember
@@ -54,6 +74,22 @@ export default class Members extends Component {
           className="btn btn-primary btn-raised">
           Add member
         </button>
+        <div>
+          <table className="table table-striped table-hover ">
+            <thead>
+              <tr className="info">
+                <th>#</th>
+                <th>Student Name</th>
+                <th>Student Email</th>
+                <th>Membership Renewed At</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              {memberListBlock}
+            </tbody>
+          </table>
+        </div>
       </div>
     );
   }
