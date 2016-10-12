@@ -1,18 +1,19 @@
 import cookie from 'react-cookie';
 
-const TOKEN = 'token';
-const USER = 'user';
+// added some fluff at the end of token and user name values to reduce chance of conflict
+const TOKEN = 'token-mobi-member';
+const USER = 'user-mobi-member';
 
 export const storeLogin = (response) => {
   const { user, token } = response;
-
-  cookie.save(TOKEN, token);
-  cookie.save(USER, user);
+  // need to add {path:'/' because front end sucks}
+  cookie.save(TOKEN, token, {path:'/'});
+  cookie.save(USER, user, {path:'/'});
 }
 
 export const clearLogin = () => {
-  cookie.remove('token');
-  cookie.remove('user');
+  cookie.remove('token', {path:'/'});
+  cookie.remove('user', {path:'/'});
 }
 
 export const getToken = () => {
