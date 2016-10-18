@@ -8,5 +8,12 @@ script:
 notifications:
   email: false
 sudo: false
+deploy:
+  on: production
+  provider: surge
+  project: ./build/
+  domain: idappthat.surge.sh
+  skip_cleanup: true
+
 
 
